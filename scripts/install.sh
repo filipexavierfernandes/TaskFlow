@@ -12,10 +12,10 @@ else
     echo "CocoaPods already installed."
 fi
 
-# Instalar dependências do CocoaPods
-pod install
-
 # Rodar XcodeGen para gerar o .xcodeproj e .xcworkspace
 xcodegen generate
+
+# Instalar dependências do CocoaPods
+pod install
 
 echo "Installation complete! You can now open the workspace and start developing."
