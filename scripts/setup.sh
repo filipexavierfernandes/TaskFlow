@@ -71,3 +71,40 @@ git add .
 git commit -m "Initial project setup"
 
 echo "Project setup complete!"
+
+# Criar arquivos AppDelegate e módulos, se não existirem
+echo "Criando arquivos básicos para o projeto..."
+
+if [ ! -f TaskFlowApp/Sources/AppDelegate.swift ]; then
+  mkdir -p TaskFlowApp/Sources
+  cat <<EOT > TaskFlowApp/Sources/AppDelegate.swift
+import UIKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
+}
+EOT
+fi
+
+if [ ! -f TaskFlowModule/Sources/TaskFlowModule.swift ]; then
+  mkdir -p TaskFlowModule/Sources
+  cat <<EOT > TaskFlowModule/Sources/TaskFlowModule.swift
+import Foundation
+
+public class TaskFlowModule {
+    public init() {}
+}
+EOT
+fi
+
+if [ ! -f SettingsModule/Sources/SettingsModule.swift ]; then
+  mkdir -p SettingsModule/Sources
+  cat <<EOT > SettingsModule/Sources/SettingsModule.swift
+import Foundation
+
+public class SettingsModule {
+    public init() {}
+}
+EOT
+fi
