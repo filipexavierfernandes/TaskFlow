@@ -1,0 +1,24 @@
+name: TaskFlowApp
+options:
+  bundleIdPrefix: com.seuusuario
+  deploymentTarget:
+    iOS: '12.0'
+workspace: TaskFlowApp.xcworkspace
+targets:
+  TaskFlowApp:
+    type: application
+    platform: iOS
+    sources: [TaskFlowApp/Sources]
+    resources: [TaskFlowApp/Resources]
+
+  TaskFlowModule:
+    type: framework
+    platform: iOS
+    sources: [TaskFlowModule/Sources]
+    dependencies:
+      - package: https://github.com/SnapKit/SnapKit.git
+
+  SettingsModule:
+    type: framework
+    platform: iOS
+    sources: [SettingsModule/Sources]
