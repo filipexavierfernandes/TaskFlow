@@ -34,3 +34,4 @@ targets:
     type: framework
     platform: iOS
     sources: [SettingsModule/Sources]
+
