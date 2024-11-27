@@ -52,17 +52,6 @@ target 'TaskFlowApp' do
 end
 EOT
 
-# Cria arquivos iniciais do README.md e CONTRIBUTING.md
-cat <<EOT > $PROJECT_NAME/README.md
-# TaskFlowApp
-A sample app to demonstrate modularization and different architectures in Swift.
-EOT
-
-cat <<EOT > $PROJECT_NAME/CONTRIBUTING.md
-# Contributing
-Feel free to submit a pull request! Please make sure to follow the Git Flow guidelines.
-EOT
-
 # Inicializa o repositório Git
 cd $PROJECT_NAME
 git add .
