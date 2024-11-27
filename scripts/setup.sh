@@ -10,7 +10,7 @@ git init
 mkdir -p $PROJECT_NAME
 
 # Cria o diretório para o módulo e o app
-mkdir -p $PROJECT_NAME/TaskFlowApp/Sources
+mkdir -p $PROJECT_NAME/Sources
 mkdir -p $PROJECT_NAME/TaskFlowModule/Sources
 mkdir -p $PROJECT_NAME/SettingsModule/Sources
 
