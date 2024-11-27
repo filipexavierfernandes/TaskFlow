@@ -17,8 +17,8 @@ targets:
   TaskFlowApp:
     type: application
     platform: iOS
-    sources: [TaskFlowApp/Sources]
-    resources: [TaskFlowApp/Resources]
+    sources: [/Sources]
+    resources: [/Resources]
     dependencies:
       - target: TaskFlowModule
       - target: SettingsModule
