@@ -27,7 +27,7 @@ O roadmap está dividido em fases de desenvolvimento, com funcionalidades que pl
 - **Feedback do Usuário**: Coletar feedback de usuários e implementar melhorias.
 
 ## Fase 5 - Preparação para Produção
-- **Testes de UI**: Criar testes de interface para garantir a experiência do usuário.
+- **Testes de UI**: Criar testes de interface com FBSnapshots para garantir a experiência do usuário.
 - **Ajustes finais de design**: Polir a interface com detalhes visuais e animações.
 - **Documentação do Projeto**: Garantir que toda a documentação esteja clara e atualizada.
 - **Publicação**: Preparar o app para a App Store (caso decida lançar publicamente).
