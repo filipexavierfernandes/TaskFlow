@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Acesse o diretório do projeto
-cd TaskFlowApp
+cd ../TaskFlowApp
 
 # Instalar CocoaPods (se ainda não estiver instalado)
 if ! command -v pod &> /dev/null

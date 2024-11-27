@@ -75,9 +75,8 @@ echo "Project setup complete!"
 # Criar arquivos AppDelegate e módulos, se não existirem
 echo "Criando arquivos básicos para o projeto..."
 
-if [ ! -f TaskFlowApp/Sources/AppDelegate.swift ]; then
-  mkdir -p TaskFlowApp/Sources
-  cat <<EOT > TaskFlowApp/Sources/AppDelegate.swift
+if [ ! -f Sources/AppDelegate.swift ]; then
+  cat <<EOT > Sources/AppDelegate.swift
 import UIKit
 
 @UIApplicationMain
