@@ -1,33 +1,38 @@
 #!/bin/bash
 
-# Acesse o diretório onde o project.yml está localizado
-cd "$(dirname "$0")/../TaskFlowApp"
+# Caminho absoluto para o diretório do script
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$SCRIPT_DIR/../TaskFlowApp"
 
-# Verifica se o CocoaPods está instalado
-if ! command -v pod &> /dev/null
-then
-    echo "CocoaPods not found, installing..."
-    brew install cocoapods
-else
-    echo "CocoaPods already installed."
+# Exibir caminhos para depuração
+echo "Script directory: $SCRIPT_DIR"
+echo "Project directory: $PROJECT_DIR"
+
+# Verifica se o diretório do projeto existe
+if [ ! -d "$PROJECT_DIR" ]; then
+    echo "Error: Project directory $PROJECT_DIR does not exist!"
+    exit 1
 fi
 
-# Rodar XcodeGen para gerar o .xcodeproj e .xcworkspace
-if [ -f project.yml ]; then
-    echo "Generating project with XcodeGen..."
+# Acesse o diretório do projeto
+cd "$PROJECT_DIR" || { echo "Error: Unable to navigate to $PROJECT_DIR"; exit 1; }
+
+# Verifica se o arquivo project.yml existe
+if [ ! -f "$PROJECT_DIR/project.yml" ]; then
+    echo "Error: project.yml not found in $PROJECT_DIR!"
+    exit 1
+else
+    echo "Found project.yml. Running XcodeGen..."
     xcodegen generate
-else
-    echo "Error: project.yml not found in the TaskFlowApp directory!"
-    exit 1
 fi
 
-# Instalar dependências do CocoaPods
-if [ -f Podfile ]; then
-    echo "Installing CocoaPods dependencies..."
-    pod install
-else
-    echo "Error: Podfile not found in the TaskFlowApp directory!"
+# Verifica se o Podfile existe antes de rodar pod install
+if [ ! -f "$PROJECT_DIR/Podfile" ]; then
+    echo "Error: Podfile not found in $PROJECT_DIR!"
     exit 1
+else
+    echo "Found Podfile. Installing dependencies..."
+    pod install
 fi
 
 echo "Installation complete! You can now open the workspace and start developing."
