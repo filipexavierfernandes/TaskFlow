@@ -21,25 +21,38 @@ options:
   bundleIdPrefix: com.seuusuario
   deploymentTarget:
     iOS: '12.0'
-workspace: $PROJECT_NAME.xcworkspace
+workspace:
+  name: TaskFlowApp
+  projects:
+    - TaskFlowApp.xcodeproj
+
+packages:
+  SnapKit:
+    url: https://github.com/SnapKit/SnapKit.git
+    from: 5.6.0
+
 targets:
   TaskFlowApp:
     type: application
     platform: iOS
     sources: [TaskFlowApp/Sources]
     resources: [TaskFlowApp/Resources]
+    dependencies:
+      - target: TaskFlowModule
+      - target: SettingsModule
 
   TaskFlowModule:
     type: framework
     platform: iOS
     sources: [TaskFlowModule/Sources]
     dependencies:
-      - package: https://github.com/SnapKit/SnapKit.git
+      - package: SnapKit
 
   SettingsModule:
     type: framework
     platform: iOS
     sources: [SettingsModule/Sources]
+
 EOT
 
 # Cria o arquivo Podfile
